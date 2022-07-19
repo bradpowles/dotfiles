@@ -11,3 +11,4 @@ PS_END="\[\e[0;38;5;197m\]\$ \[\e[0m\]$()\[\e[0m\]"
 
 GIT_PS1_SHOWDIRTYSTATE=1
 PS1="${PS_TIME} ${PS_USER}${PS_HOST} ${PS_DIR}${PS_GIT} ${PS_END}"
+PROMPT_COMMAND='echo -en "\033]0;$(whoami)@$(hostname) [$(pwd)]\a"'
