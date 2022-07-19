@@ -18,3 +18,4 @@ for file in ~/.bash_{aliases,prompt} ; do
 done
 
 
+export EDITOR=vi
