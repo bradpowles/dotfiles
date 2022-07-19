@@ -6,3 +6,6 @@ alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+
+alias dotf='cd $(dirname $(readlink ~/.bashrc))'
+alias dotfu='git -C $(dirname $(readlink ~/.bashrc) pull'
