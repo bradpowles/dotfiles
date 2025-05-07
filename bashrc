@@ -19,7 +19,7 @@ fi
 
 # Imports
 
-for file in $DOTFILES/bash_{aliases,extras,defaults,prompt} ; do
+for file in $DOTFILES/bash_{aliases,defaults,extras,functions,prompt} ; do
     if [[ -r "$file" ]] && [[ -f "$file" ]] ; then
         # shellcheck source=/dev/null
         source "$file"
