@@ -6,9 +6,12 @@ else
 fi
 PS_HOST="\[\e[0;38;5;31m\]@\[\e[0;38;5;36m\]\h"
 PS_DIR="\[\e[0;35m\][\[\e[0;38;5;37m\]\w\[\e[0;35m\]]"
-PS_GIT="\[\e[0;3;35m\]\$(__git_ps1)"
 PS_END="\[\e[0;38;5;197m\]\$ \[\e[0m\]$()\[\e[0m\]"
 
-GIT_PS1_SHOWDIRTYSTATE=1
+if $GIT_SUPPORT; then
+    PS_GIT="\[\e[0;3;35m\]\$(__git_ps1)"
+    GIT_PS1_SHOWDIRTYSTATE=1
+fi
+
 PS1="${PS_TIME} ${PS_USER}${PS_HOST} ${PS_DIR}${PS_GIT} ${PS_END}"
 PROMPT_COMMAND='echo -en "\033]0;$(whoami)@$(hostname) [$(pwd)]\a"'
