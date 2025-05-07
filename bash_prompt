@@ -1,5 +1,7 @@
+#!/usr/bin/env bash
+
 PS_TIME="\[\e[0;32m\]\t"
-if [[ `whoami` == "root" ]]; then
+if [[ $(whoami) == "root" ]]; then
     PS_USER="\[\e[0;1;38;5;160m\]\u"
 else 
     PS_USER="\[\e[0;1;38;5;38m\]\u"
@@ -10,6 +12,7 @@ PS_END="\[\e[0;38;5;197m\]\$ \[\e[0m\]$()\[\e[0m\]"
 
 if $GIT_SUPPORT; then
     PS_GIT="\[\e[0;3;35m\]\$(__git_ps1)"
+    # shellcheck disable=SC2034
     GIT_PS1_SHOWDIRTYSTATE=1
 fi
 

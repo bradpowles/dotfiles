@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Default Environment Variables
 
 export PYTHONDONTWRITEBYTECODE=1

@@ -2,6 +2,7 @@
 :set paste     " Turn off auto indent
 :set expandtab " Covert tabs to spaces
 :set ruler     " Show cursor position
+:syntax enable
 
 " EscEsc to clear search
 :nnoremap <esc><esc> :noh<return>

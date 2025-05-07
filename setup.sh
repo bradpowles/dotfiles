@@ -30,7 +30,7 @@ ln -s "$DOTFILES_VIMRC" "$USER_VIMRC" && echo "Successfully linked $USER_VIMRC t
 
 # Store Dotfiles location.
 
-echo $SCRIPT_DIR > $HOME/.dotfiles && echo "Successfully set $HOME/.dotfiles to $SCRIPT_DIR"
+echo "$SCRIPT_DIR" > "$HOME"/.dotfiles && echo "Successfully set $HOME/.dotfiles to $SCRIPT_DIR"
 
 
 # Setup .bash_extras for local settings
@@ -48,7 +48,8 @@ ssh_flags=(
     "ServerAliveCountMax 3"
 )
 
-cp "$SSH_CONFIG_FILE" "$SSH_CONFIG_FILE.bak" 2>/dev/null && echo "Backing up $SSH_CONFIG_FILE." || touch $SSH_CONFIG_FILE
+cp "$SSH_CONFIG_FILE" "$SSH_CONFIG_FILE.bak" 2>/dev/null && echo "Backing up $SSH_CONFIG_FILE."
+touch "$SSH_CONFIG_FILE"
 grep -q "^Host \*" "$SSH_CONFIG_FILE" || sed -i "1s/^/Host \*\n\n/" "$SSH_CONFIG_FILE"
 for flag in "${ssh_flags[@]}"; do
     grep -q "$flag" "$SSH_CONFIG_FILE" || sed -i "/^Host \*/a\\    $flag" "$SSH_CONFIG_FILE"
