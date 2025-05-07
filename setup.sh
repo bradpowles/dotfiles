@@ -16,6 +16,18 @@ fi
 ln -s "$DOTFILES_BASHRC" "$USER_BASHRC" && echo "Successfully linked $USER_BASHRC to $DOTFILES_BASHRC"
 
 
+# Link in .vimrc file
+
+DOTFILES_VIMRC="$SCRIPT_DIR/vimrc"
+USER_VIMRC="$HOME/.vimrc"
+
+if [ -f "$USER_VIMRC" ]; then
+    echo "Warning: $USER_VIMRC already exists. Please delete this."
+fi
+
+ln -s "$DOTFILES_VIMRC" "$USER_VIMRC" && echo "Successfully linked $USER_VIMRC to $DOTFILES_VIMRC"
+
+
 # Store Dotfiles location.
 
 echo $SCRIPT_DIR > $HOME/.dotfiles && echo "Successfully set $HOME/.dotfiles to $SCRIPT_DIR"
