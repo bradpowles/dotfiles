@@ -10,6 +10,10 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+alias gc='git commit'
+alias ga='git commit --amend'
+alias gp='git push'
+
 alias dotf='cd $DOTFILES'
 alias dotfu='git -C $DOTFILES pull'
 
