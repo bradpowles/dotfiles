@@ -53,7 +53,7 @@ touch "$SSH_CONFIG_FILE"
 grep -q "^Host \*" "$SSH_CONFIG_FILE" || printf "\n\nHost *\n" >> "$SSH_CONFIG_FILE"
 for flag in "${ssh_flags[@]}"; do
     search_flag=$(echo "$flag" | awk '{print $1}') 
-    grep -q "$search_flag" "$SSH_CONFIG_FILE" || sed -i "/^Host \*/a\\    $flag" "$SSH_CONFIG_FILE"
+    grep -q "^Host\s\*(?:(?:\s|.)(?!#))*StrictHostKeys".*EOF" "$SSH_CONFIG_FILE" || sed -i "/^Host \*/a\\    $flag" "$SSH_CONFIG_FILE"
 done
 
 echo "SSH config file complete."
