@@ -18,7 +18,6 @@ set statusline+=\[%{&fileformat}\]\ %p%%\ %l:%c
 " Highlight 80 character limit
 set textwidth=80
 set colorcolumn=+1
-highlight ColorColumn ctermbg=white guibg=white
 
 " EscEsc to clear search
 nnoremap <esc><esc> :noh<return>

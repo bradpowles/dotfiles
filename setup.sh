@@ -50,9 +50,10 @@ ssh_flags=(
 
 cp "$SSH_CONFIG_FILE" "$SSH_CONFIG_FILE.bak" 2>/dev/null && echo "Backing up $SSH_CONFIG_FILE."
 touch "$SSH_CONFIG_FILE"
-grep -q "^Host \*" "$SSH_CONFIG_FILE" || sed -i "1s/^/Host \*\n\n/" "$SSH_CONFIG_FILE"
+grep -q "^Host \*" "$SSH_CONFIG_FILE" || echo "\n\nHost *\n" >> "$SSH_CONFIG_FILE"
 for flag in "${ssh_flags[@]}"; do
-    grep -q "$flag" "$SSH_CONFIG_FILE" || sed -i "/^Host \*/a\\    $flag" "$SSH_CONFIG_FILE"
+    search_flag=$(echo "$flag" | awk '{print $1}') 
+    grep -q "$search_flag" "$SSH_CONFIG_FILE" || sed -i "/^Host \*/a\\    $flag" "$SSH_CONFIG_FILE"
 done
 
 echo "SSH config file complete."
