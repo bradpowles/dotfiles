@@ -5,11 +5,11 @@ GIT_SUPPORT=$(command -v git &> /dev/null)
 
 if $GIT_SUPPORT; then
     for git_completion_script in {git-completion.bash,git-prompt.sh} ; do
-        if [ ! -f "~/.$git_completion_script" ]; then
-            curl -OL "https://github.com/git/git/raw/master/contrib/completion/$git_completion_script" -o "~/.$git_completion_script"
+        if [ ! -f "$HOME/.$git_completion_script" ]; then
+            curl -OL "https://github.com/git/git/raw/master/contrib/completion/$git_completion_script" -o "$HOME/.$git_completion_script"
         fi
         # shellcheck source=/dev/null
-        source "~/.$git_completion_script"
+        source "$HOME/.$git_completion_script"
     done
 fi
 
